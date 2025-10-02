@@ -3,7 +3,7 @@ import KPICard from "@/components/KPICard";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Truck, Users, AlertTriangle, DollarSign, Search, MoreVertical, TrendingUp, Activity, MapPin } from "lucide-react";
+import { Truck, Users, AlertTriangle, DollarSign, Search, MoreVertical, Activity, MapPin } from "lucide-react";
 import {
   Table,
   TableBody,

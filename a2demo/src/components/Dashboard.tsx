@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Home, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
