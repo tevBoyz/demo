@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Package, MapPin, Clock, CheckCircle, Plus, Map } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Dialog,
@@ -218,10 +219,14 @@ const ShipperDashboard = () => {
             <div className="space-y-2">
               <Label>Pickup Location</Label>
               <Input placeholder="Enter pickup address" />
+              <Button className="cursor-not-allowed">Select Location <MapPin /></Button>
+
+
             </div>
             <div className="space-y-2">
               <Label>Delivery Location</Label>
               <Input placeholder="Enter delivery address" />
+              <Button className="cursor-not-allowed">Select Location <MapPin /></Button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -232,6 +237,10 @@ const ShipperDashboard = () => {
                 <Label>Delivery Date</Label>
                 <Input type="date" />
               </div>
+              <div className="space-y-2 w-full col-span-2">
+              <Label>More Information (Optional)</Label>
+              <Textarea placeholder="Enter more details"></Textarea>
+            </div>
             </div>
           </div>
           <div className="flex gap-3">

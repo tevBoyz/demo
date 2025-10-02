@@ -26,18 +26,19 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
               <img src={logo} width={80}/><span className="text-lg sm:text-xl font-bold hidden sm:block">Corridor</span>
+                            <h1 className="text-[#FF0000] font-bold text-[2em]">DEMO</h1>
+
             </div>
             
             <div className="flex items-center gap-2 sm:gap-4">
               <Button
                 variant="ghost"
-                size="icon"
-                className="text-primary-foreground hover:bg-primary-foreground/20"
+                className="text-primary-foreground cursor-pointer hover:bg-primary-foreground/20 hover:text-primary-foreground"
                 onClick={() => navigate("/")}
               >
-                <Home className="h-5 w-5" />
+                Go Back
               </Button>
-              <Button
+              {/* <Button
                 variant="ghost"
                 size="icon"
                 className="text-primary-foreground hover:bg-primary-foreground/20"
@@ -61,7 +62,7 @@ const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
                   <DropdownMenuItem>Settings</DropdownMenuItem>
                   <DropdownMenuItem>Logout</DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenu>
+              </DropdownMenu> */}
             </div>
           </div>
         </div>

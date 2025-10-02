@@ -13,11 +13,17 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
+import { Label } from "@radix-ui/react-dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@radix-ui/react-select";
+import { Switch } from "@radix-ui/react-switch";
 
 const DriverDashboard = () => {
   const [selectedTruck, setSelectedTruck] = useState<string | null>(null);
   const [showMaintenanceDialog, setShowMaintenanceDialog] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const myTrucks = [
     { id: "TR-1234", model: "Tesla Semi", status: "Active", battery: 85, location: "Highway 101" },
@@ -34,6 +40,15 @@ const DriverDashboard = () => {
     { type: "Warning", message: "Truck TR-5678 requires maintenance check", time: "30 min ago" },
     { type: "Info", message: "New delivery assigned to TR-1234", time: "1 hour ago" },
   ];
+
+  const [showAddTruckDialog, setShowAddTruckDialog] = useState(false);
+const [newTruck, setNewTruck] = useState({
+  id: "",
+  model: "",
+  status: "Active",
+  battery: 0,
+  location: ""
+});
 
   return (
     <DashboardLayout title="Truck Owner/Driver Dashboard">
@@ -80,6 +95,7 @@ const DriverDashboard = () => {
                 <CardTitle>My Trucks</CardTitle>
                 <CardDescription>Monitor your fleet status</CardDescription>
               </CardHeader>
+              
               <CardContent>
                 <div className="space-y-4">
                   {myTrucks.map((truck) => (
@@ -165,7 +181,86 @@ const DriverDashboard = () => {
                   <Button className="w-full" onClick={() => setShowMaintenanceDialog(true)}>Schedule Maintenance</Button>
                 </div>
               </CardContent>
-            </Card>
+            </Card> 
+
+            <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button onClick={() => setOpen(true)}>Add Truck / Device</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-4xl">
+        <DialogHeader>
+          <DialogTitle>Add New Truck & Configure IoT Device</DialogTitle>
+        </DialogHeader>
+
+        <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* User Info */}
+          <div>
+            <Label>Full Name</Label>
+            <Input placeholder="John Doe" />
+          </div>
+          <div>
+            <Label>Email</Label>
+            <Input type="email" placeholder="john@example.com" />
+          </div>
+          <div>
+            <Label>Phone</Label>
+            <Input type="tel" placeholder="+251-9-123-4567" />
+          </div>
+          <div>
+            <Label>Role</Label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a role" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="driver">Driver</SelectItem>
+                <SelectItem value="shipper">Shipper</SelectItem>
+                <SelectItem value="operator">Station Operator</SelectItem>
+                <SelectItem value="admin">Admin</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label>Vehicle Plate</Label>
+            <Input placeholder="ABC-12345" />
+          </div>
+
+          {/* IoT Config */}
+          <div>
+            <Label>Device ID</Label>
+            <Input placeholder="Enter IoT Device ID" />
+          </div>
+          <div>
+            <Label>Device Type</Label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Select device type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="gps">GPS Tracker</SelectItem>
+                <SelectItem value="sensor">Cargo Sensor</SelectItem>
+                <SelectItem value="camera">Camera Module</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label>Installation Date</Label>
+            <Input type="date" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Label>Device Status</Label>
+            <Switch />
+          </div>
+        </form>
+
+        <div className="mt-6 flex justify-end gap-2">
+          <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+          <Button type="submit" onClick={() => setOpen(false)}>Save</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+
+
           </div>
         </TabsContent>
 
@@ -257,7 +352,7 @@ const DriverDashboard = () => {
 
       {/* Truck Details Dialog */}
       <Dialog open={selectedTruck !== null} onOpenChange={() => setSelectedTruck(null)}>
-        <DialogContent className="sm:max-w-lg">
+       <DialogContent className="sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle>Truck Details - {selectedTruck}</DialogTitle>
             <DialogDescription>Detailed information about the truck</DialogDescription>

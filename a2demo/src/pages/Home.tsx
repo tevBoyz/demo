@@ -9,14 +9,14 @@ const Home = () => {
   const dashboards = [
     {
       title: "Admin Dashboard",
-      description: "Manage fleet, users, and system settings",
+      description: "Manage platform and users",
       icon: User,
       path: "/admin",
       color: "from-primary to-accent"
     },
     {
       title: "Truck Owner/Driver",
-      description: "Monitor trucks, deliveries, and maintenance",
+      description: "Monitor truck and its maintenance",
       icon: Truck,
       path: "/driver",
       color: "from-success to-emerald-500"
@@ -34,10 +34,11 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-primary text-primary-foreground shadow-lg">
-        <div className="container mx-auto px-6 py-6">
+        <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-             <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
+             <div className="flex items-center gap-1 cursor-pointer" onClick={() => navigate("/")}>
               <img src={logo} width={80}/><span className="text-lg sm:text-xl font-bold hidden sm:block">Corridor</span>
+              <h1 className="text-[#FF0000] font-bold text-[2em]">DEMO</h1>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm">Prototype Dashboard</span>
