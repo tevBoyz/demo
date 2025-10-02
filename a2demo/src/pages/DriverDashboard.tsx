@@ -41,14 +41,7 @@ const DriverDashboard = () => {
     { type: "Info", message: "New delivery assigned to TR-1234", time: "1 hour ago" },
   ];
 
-  const [showAddTruckDialog, setShowAddTruckDialog] = useState(false);
-const [newTruck, setNewTruck] = useState({
-  id: "",
-  model: "",
-  status: "Active",
-  battery: 0,
-  location: ""
-});
+
 
   return (
     <DashboardLayout title="Truck Owner/Driver Dashboard">
