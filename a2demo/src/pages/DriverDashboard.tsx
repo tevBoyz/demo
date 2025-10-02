@@ -3,7 +3,7 @@ import DashboardLayout from "@/components/Dashboard";
 import KPICard from "@/components/KPICard";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Truck, Battery, Package, AlertCircle, MapPin, Settings, Pin } from "lucide-react";
+import { Truck, Battery, Package, AlertCircle, MapPin, Settings } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

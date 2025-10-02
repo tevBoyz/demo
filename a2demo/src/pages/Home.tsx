@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Truck, User, Package, Battery } from "lucide-react";
+import { Truck, User, Package } from "lucide-react";
 import logo from '@/assets/logo.png'
 
 const Home = () => {

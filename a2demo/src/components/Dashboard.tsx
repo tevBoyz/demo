@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Truck, Home, Bell, User, Menu } from "lucide-react";
+import { Home, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
+  DropdownMenu, 
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
@@ -17,7 +17,6 @@ interface DashboardLayoutProps {
 
 const DashboardLayout = ({ children, title }: DashboardLayoutProps) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-background">

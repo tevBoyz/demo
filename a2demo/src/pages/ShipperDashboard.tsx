@@ -14,7 +14,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import mapp from '@/assets/eth-dji-map-2.png'
@@ -315,8 +314,6 @@ const ShipperDashboard = () => {
     {(() => {
       const lat = 37.7749;
       const lng = -122.4194;
-      const zoom = 13;
-      const size = "1200x600"; // width x height in px (service limits apply)
       // OpenStreetMap static tile-based service that supports a marker param
       return (
         <div className="py-4">
