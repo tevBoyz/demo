@@ -28,8 +28,8 @@ const DashboardOverview = () => {
     },
     {
       title: "Total Revenue",
-      value: "₹45,600",
-      subtitle: "₹8,200 pending",
+      value: "45,600",
+      subtitle: "8,200 pending",
       icon: DollarSign,
       color: "text-success",
       bgColor: "bg-success/10",
